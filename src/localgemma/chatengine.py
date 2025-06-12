@@ -1,4 +1,4 @@
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaLLM
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores import DocArrayInMemorySearch
@@ -6,9 +6,12 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import sys
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+
 
 # Initialize models
-llm = Ollama(model="gemma3:4b")
+llm = OllamaLLM(model="gemma3:4b")
 embedding_model = OllamaEmbeddings(model="bge-m3:567m")
 
 # Load PDF and build vector store
