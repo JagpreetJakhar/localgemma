@@ -7,11 +7,25 @@ authors = [
     { name = "JagpreetJakhar", email = "jagpreetjakhar94@gmail.com" }
 ]
 requires-python = ">=3.12.3"
-dependencies = []
+dependencies = [
+    "docarray>=0.41.0",
+    "faiss-cpu>=1.11.0",
+    "langchain>=0.3.25",
+    "langchain-community>=0.3.21",
+    "langchain-ollama>=0.3.3",
+    "matplotlib==3.8.3",
+    "pandas==2.2.1",
+    "plotly==5.20.0",
+    "prettytable==3.15.1",
+    "pypdf>=5.6.0",
+    "sentence-transformers==2.5.1",
+    "streamlit==1.32.2",
+    "torch>=2.7.1",
+]
 
 [project.scripts]
-localgemma = "localgemma:main"
-
+test = "localgemma.test:main"
+chat = "localgemma.chatengine:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
